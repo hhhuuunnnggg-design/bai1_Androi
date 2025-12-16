@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Thông Tin Cá Nhân</string>
+    <string name="edit_profile">Chỉnh sửa thông tin</string>
+    <string name="save_profile">Lưu thông tin</string>
+    <string name="name_label">Tên:</string>
+    <string name="email_label">Email:</string>
+    <string name="hint_name">Nguyễn Văn A</string>
+    <string name="hint_email">a@example.com</string>
+    <string name="change_avatar">Chọn ảnh</string>
+    <string name="select_photo">Chọn một ảnh</string>
+    <string name="gallery">Thư viện</string>
+    <string name="camera">Chụp ảnh</string>
+    <string name="cancel">Hủy</string>
+    <string name="no_camera">Không tìm thấy camera hoặc ứng dụng camera. Vui lòng kiểm tra lại thiết bị hoặc sử dụng thư viện ảnh.</string>
+    <string name="camera_not_available">Camera không khả dụng. Nếu bạn đang dùng emulator, vui lòng bật camera trong cài đặt AVD.</string>
+    <string name="permission_denied">Quyền truy cập bị từ chối</string>
+    <string name="saved_success">Đã lưu thông tin thành công!</string>
+</resources>
