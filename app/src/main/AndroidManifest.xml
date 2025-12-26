@@ -97,6 +97,21 @@
                 android:value=".ContactListActivity" />
         </activity>
         
+        <activity
+            android:name=".AlarmActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        
+        <receiver
+            android:name=".receiver.AlarmReceiver"
+            android:enabled="true"
+            android:exported="false" />
+        
         <service
             android:name=".service.MusicService"
             android:enabled="true"

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".AlarmActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Báo Thức va Nhắc Nhở"
+            android:textSize="28sp"
+            android:textColor="@color/purple_primary"
+            android:textStyle="bold"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
+            android:layout_gravity="center_horizontal"
+            android:letterSpacing="0.02" />
+
+        <!-- Input Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/card_background"
+            android:background="@drawable/card_background_enhanced">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="28dp">
+
+                <!-- Minutes Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số phút:"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/edtMinutes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="56dp"
+                    android:hint="Nhập số phút (ví dụ: 5)"
+                    android:inputType="number"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="#999999"
+                    android:background="@drawable/edit_text_background_enhanced"
+                    android:padding="16dp"
+                    android:layout_marginBottom="20dp"
+                    android:importantForAutofill="no" />
+
+                <!-- Message Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nội dung nhắc nhở:"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <EditText
+                    android:id="@+id/edtMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:hint="Nhập nội dung nhắc nhở..."
+                    android:inputType="textMultiLine"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="#999999"
+                    android:background="@drawable/edit_text_background_enhanced"
+                    android:padding="16dp"
+                    android:gravity="top|start"
+                    android:importantForAutofill="no" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Set Alarm Button -->
+        <Button
+            android:id="@+id/btnSetAlarm"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="⏰ Đặt Báo Thức"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/button_background_enhanced"
+            android:foreground="@drawable/ripple_effect"
+            android:elevation="6dp"
+            android:stateListAnimator="@null"
+            android:letterSpacing="0.05"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Cancel Alarm Button -->
+        <Button
+            android:id="@+id/btnCancelAlarm"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="❌ Hủy Báo Thức"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/button_background_enhanced"
+            android:foreground="@drawable/ripple_effect"
+            android:elevation="6dp"
+            android:stateListAnimator="@null"
+            android:letterSpacing="0.05"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Status Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/card_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trạng thái"
+                    android:textSize="16sp"
+                    android:textColor="@color/purple_primary"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:id="@+id/txtStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chưa đặt báo thức"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary" />
+
+                <TextView
+                    android:id="@+id/txtAlarmTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginTop="8dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

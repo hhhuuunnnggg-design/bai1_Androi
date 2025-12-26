@@ -207,6 +207,22 @@
             android:elevation="6dp"
             android:stateListAnimator="@null"
             android:letterSpacing="0.05"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Alarm Button -->
+        <Button
+            android:id="@+id/btnAlarm"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="⏰ Báo Thức"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/button_background_enhanced"
+            android:foreground="@drawable/ripple_effect"
+            android:elevation="6dp"
+            android:stateListAnimator="@null"
+            android:letterSpacing="0.05"
             android:layout_marginBottom="24dp" />
 
     </LinearLayout>

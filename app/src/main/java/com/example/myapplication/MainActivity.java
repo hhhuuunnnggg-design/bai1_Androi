@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnMusic;
     private Button btnNote;
     private Button btnContact;
+    private Button btnAlarm;
 
     // ==================== DATA ====================
     private UserDataManager dataManager;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         btnMusic = findViewById(R.id.btnMusic);
         btnNote = findViewById(R.id.btnNote);
         btnContact = findViewById(R.id.btnContact);
+        btnAlarm = findViewById(R.id.btnAlarm);
     }
 
     private void initializeDataManager() {
@@ -130,6 +132,18 @@ public class MainActivity extends AppCompatActivity {
                     AnimationUtils.loadAnimation(this, R.anim.scale_in));
 
             Intent intent = new Intent(MainActivity.this, ContactListActivity.class);
+            startActivity(intent);
+
+            overridePendingTransition(
+                    R.anim.slide_in_bottom,
+                    R.anim.slide_out_top);
+        });
+
+        btnAlarm.setOnClickListener(v -> {
+            btnAlarm.startAnimation(
+                    AnimationUtils.loadAnimation(this, R.anim.scale_in));
+
+            Intent intent = new Intent(MainActivity.this, AlarmActivity.class);
             startActivity(intent);
 
             overridePendingTransition(
