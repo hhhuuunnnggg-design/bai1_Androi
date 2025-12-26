@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnEdit;
     private Button btnMusic;
     private Button btnNote;
+    private Button btnContact;
 
     // ==================== DATA ====================
     private UserDataManager dataManager;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         btnEdit = findViewById(R.id.btnEdit);
         btnMusic = findViewById(R.id.btnMusic);
         btnNote = findViewById(R.id.btnNote);
+        btnContact = findViewById(R.id.btnContact);
     }
 
     private void initializeDataManager() {
@@ -116,6 +118,18 @@ public class MainActivity extends AppCompatActivity {
                     AnimationUtils.loadAnimation(this, R.anim.scale_in));
 
             Intent intent = new Intent(MainActivity.this, NoteActivity.class);
+            startActivity(intent);
+
+            overridePendingTransition(
+                    R.anim.slide_in_bottom,
+                    R.anim.slide_out_top);
+        });
+
+        btnContact.setOnClickListener(v -> {
+            btnContact.startAnimation(
+                    AnimationUtils.loadAnimation(this, R.anim.scale_in));
+
+            Intent intent = new Intent(MainActivity.this, ContactListActivity.class);
             startActivity(intent);
 
             overridePendingTransition(

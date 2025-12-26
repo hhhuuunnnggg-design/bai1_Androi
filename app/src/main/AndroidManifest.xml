@@ -77,6 +77,26 @@
                 android:value=".MainActivity" />
         </activity>
         
+        <activity
+            android:name=".ContactListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        
+        <activity
+            android:name=".AddContactActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".ContactListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ContactListActivity" />
+        </activity>
+        
         <service
             android:name=".service.MusicService"
             android:enabled="true"
