@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnNote;
     private Button btnContact;
     private Button btnAlarm;
+    private Button btnDetail;
+    private Button btnPermission;
 
     // ==================== DATA ====================
     private UserDataManager dataManager;
@@ -66,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         btnNote = findViewById(R.id.btnNote);
         btnContact = findViewById(R.id.btnContact);
         btnAlarm = findViewById(R.id.btnAlarm);
+        btnDetail = findViewById(R.id.btnDetail);
+        btnPermission = findViewById(R.id.btnPermission);
     }
 
     private void initializeDataManager() {
@@ -150,6 +154,49 @@ public class MainActivity extends AppCompatActivity {
                     R.anim.slide_in_bottom,
                     R.anim.slide_out_top);
         });
+
+        btnDetail.setOnClickListener(v -> {
+            btnDetail.startAnimation(
+                    AnimationUtils.loadAnimation(this, R.anim.scale_in));
+
+            // Gửi Implicit Intent với custom action
+            sendImplicitIntent();
+        });
+
+        btnPermission.setOnClickListener(v -> {
+            btnPermission.startAnimation(
+                    AnimationUtils.loadAnimation(this, R.anim.scale_in));
+
+            Intent intent = new Intent(MainActivity.this, PermissionActivity.class);
+            startActivity(intent);
+
+            overridePendingTransition(
+                    R.anim.slide_in_bottom,
+                    R.anim.slide_out_top);
+        });
+    }
+
+    // ==================== IMPLICIT INTENT ====================
+    private void sendImplicitIntent() {
+        // Tạo Implicit Intent với custom action
+        Intent intent = new Intent("com.example.ACTION_DETAIL");
+        
+        // Thêm extras
+        intent.putExtra("title", "Thông Tin Chi Tiết");
+        intent.putExtra("content", "Đây là nội dung được truyền từ MainActivity thông qua Implicit Intent với custom action.");
+        intent.putExtra("extra_data", "Dữ liệu bổ sung: " + System.currentTimeMillis());
+        
+        // Kiểm tra xem có Activity nào có thể xử lý Intent này không
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+            overridePendingTransition(
+                    R.anim.slide_in_bottom,
+                    R.anim.slide_out_top);
+        } else {
+            android.widget.Toast.makeText(this, 
+                    "Không tìm thấy Activity để xử lý Intent này", 
+                    android.widget.Toast.LENGTH_SHORT).show();
+        }
     }
 
     // ==================== ANIMATIONS ====================

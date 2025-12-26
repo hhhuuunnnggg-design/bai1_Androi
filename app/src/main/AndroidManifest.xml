@@ -107,6 +107,26 @@
                 android:value=".MainActivity" />
         </activity>
         
+        <activity
+            android:name=".DetailActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.example.ACTION_DETAIL" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".PermissionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        
         <receiver
             android:name=".receiver.AlarmReceiver"
             android:enabled="true"
