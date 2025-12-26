@@ -15,4 +15,5 @@
     <string name="camera_not_available">Camera không khả dụng. Nếu bạn đang dùng emulator, vui lòng bật camera trong cài đặt AVD.</string>
     <string name="permission_denied">Quyền truy cập bị từ chối</string>
     <string name="saved_success">Đã lưu thông tin thành công!</string>
+    <string name="music_player">Music Player</string>
 </resources>

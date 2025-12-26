@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtName;
     private TextView txtEmail;
     private Button btnEdit;
+    private Button btnMusic;
 
     // ==================== DATA ====================
     private UserDataManager dataManager;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         txtName = findViewById(R.id.txtName);
         txtEmail = findViewById(R.id.txtEmail);
         btnEdit = findViewById(R.id.btnEdit);
+        btnMusic = findViewById(R.id.btnMusic);
     }
 
     private void initializeDataManager() {
@@ -93,6 +95,18 @@ public class MainActivity extends AppCompatActivity {
             overridePendingTransition(
                     R.anim.slide_in_right,
                     R.anim.slide_out_left);
+        });
+
+        btnMusic.setOnClickListener(v -> {
+            btnMusic.startAnimation(
+                    AnimationUtils.loadAnimation(this, R.anim.scale_in));
+
+            Intent intent = new Intent(MainActivity.this, MusicActivity.class);
+            startActivity(intent);
+
+            overridePendingTransition(
+                    R.anim.slide_in_bottom,
+                    R.anim.slide_out_top);
         });
     }
 
