@@ -42,17 +42,17 @@
                 android:elevation="8dp"
                 android:background="@drawable/avatar_border">
 
-                <ImageView
-                    android:id="@+id/imgAvatarEdit"
+            <ImageView
+                android:id="@+id/imgAvatarEdit"
                     android:layout_width="152dp"
                     android:layout_height="152dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/avatar_background"
-                    android:src="@drawable/ic_person"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="@string/change_avatar" />
+                android:background="@drawable/avatar_background"
+                android:src="@drawable/ic_person"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/change_avatar" />
 
-            </FrameLayout>
+        </FrameLayout>
 
         </FrameLayout>
 
@@ -96,19 +96,19 @@
                     android:orientation="vertical"
                     android:layout_marginBottom="28dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/name_label"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name_label"
                         android:textSize="13sp"
-                        android:textColor="@color/text_secondary"
-                        android:textStyle="bold"
+                    android:textColor="@color/text_secondary"
+                    android:textStyle="bold"
                         android:letterSpacing="0.05"
                         android:layout_marginBottom="12dp"
                         android:layout_marginStart="4dp" />
 
-                    <EditText
-                        android:id="@+id/edtName"
+                <EditText
+                    android:id="@+id/edtName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:minHeight="56dp"
@@ -133,26 +133,26 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/email_label"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email_label"
                         android:textSize="13sp"
-                        android:textColor="@color/text_secondary"
-                        android:textStyle="bold"
+                    android:textColor="@color/text_secondary"
+                    android:textStyle="bold"
                         android:letterSpacing="0.05"
                         android:layout_marginBottom="12dp"
                         android:layout_marginStart="4dp" />
 
-                    <EditText
-                        android:id="@+id/edtEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                <EditText
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                         android:minHeight="56dp"
-                        android:hint="@string/hint_email"
-                        android:inputType="textEmailAddress"
+                    android:hint="@string/hint_email"
+                    android:inputType="textEmailAddress"
                         android:textSize="17sp"
-                        android:textColor="@color/text_primary"
+                    android:textColor="@color/text_primary"
                         android:textColorHint="#999999"
                         android:background="@drawable/edit_text_background_enhanced"
                         android:paddingStart="20dp"

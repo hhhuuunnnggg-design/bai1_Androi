@@ -127,6 +127,31 @@
                 android:value=".MainActivity" />
         </activity>
         
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name=".ScheduleActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+        </activity>
+        
+        <activity
+            android:name=".AttendanceActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".ScheduleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ScheduleActivity" />
+        </activity>
+        
         <receiver
             android:name=".receiver.AlarmReceiver"
             android:enabled="true"

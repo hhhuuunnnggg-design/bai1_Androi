@@ -3,12 +3,16 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.myapplication.utils.UserDataManager;
 
@@ -31,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAlarm;
     private Button btnDetail;
     private Button btnPermission;
+    private Button btnAttendance;
 
     // ==================== DATA ====================
     private UserDataManager dataManager;
@@ -42,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         // KHỞI TẠO Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Setup Toolbar để hiển thị menu 3 chấm
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         initializeViews();
         initializeDataManager();
@@ -70,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         btnAlarm = findViewById(R.id.btnAlarm);
         btnDetail = findViewById(R.id.btnDetail);
         btnPermission = findViewById(R.id.btnPermission);
+        btnAttendance = findViewById(R.id.btnAttendance);
     }
 
     private void initializeDataManager() {
@@ -174,18 +184,31 @@ public class MainActivity extends AppCompatActivity {
                     R.anim.slide_in_bottom,
                     R.anim.slide_out_top);
         });
+
+        btnAttendance.setOnClickListener(v -> {
+            btnAttendance.startAnimation(
+                    AnimationUtils.loadAnimation(this, R.anim.scale_in));
+
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+
+            overridePendingTransition(
+                    R.anim.slide_in_bottom,
+                    R.anim.slide_out_top);
+        });
     }
 
     // ==================== IMPLICIT INTENT ====================
     private void sendImplicitIntent() {
         // Tạo Implicit Intent với custom action
         Intent intent = new Intent("com.example.ACTION_DETAIL");
-        
+
         // Thêm extras
         intent.putExtra("title", "Thông Tin Chi Tiết");
-        intent.putExtra("content", "Đây là nội dung được truyền từ MainActivity thông qua Implicit Intent với custom action.");
+        intent.putExtra("content",
+                "Đây là nội dung được truyền từ MainActivity thông qua Implicit Intent với custom action.");
         intent.putExtra("extra_data", "Dữ liệu bổ sung: " + System.currentTimeMillis());
-        
+
         // Kiểm tra xem có Activity nào có thể xử lý Intent này không
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
@@ -193,8 +216,8 @@ public class MainActivity extends AppCompatActivity {
                     R.anim.slide_in_bottom,
                     R.anim.slide_out_top);
         } else {
-            android.widget.Toast.makeText(this, 
-                    "Không tìm thấy Activity để xử lý Intent này", 
+            android.widget.Toast.makeText(this,
+                    "Không tìm thấy Activity để xử lý Intent này",
                     android.widget.Toast.LENGTH_SHORT).show();
         }
     }
@@ -204,5 +227,30 @@ public class MainActivity extends AppCompatActivity {
         imgAvatar.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
         txtName.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
         txtEmail.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
+    }
+
+    // ==================== MENU ====================
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menuAbout) {
+            showAboutDialog();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void showAboutDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Giới thiệu");
+        builder.setMessage("Ứng dụng gợi ý phim - Nơi bạn tìm được bộ phim yêu thích nhất!");
+        builder.setPositiveButton("Đóng", (dialog, which) -> dialog.dismiss());
+        builder.setIcon(android.R.drawable.ic_dialog_info);
+        builder.create().show();
     }
 }
